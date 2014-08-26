@@ -15,6 +15,13 @@
 		14E012F619AD031200BF86A5 /* BOOJsonMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E012D919AD031200BF86A5 /* BOOJsonMapper.framework */; };
 		14E012FC19AD031200BF86A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14E012FA19AD031200BF86A5 /* InfoPlist.strings */; };
 		14E012FE19AD031200BF86A5 /* BOOJsonMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E012FD19AD031200BF86A5 /* BOOJsonMapperTests.m */; };
+		14E0130819AD032C00BF86A5 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 14E0130719AD032C00BF86A5 /* data.json */; };
+		14E0130C19AD04B600BF86A5 /* BOOUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E0130B19AD04B600BF86A5 /* BOOUser.m */; };
+		14E0130F19AD04C000BF86A5 /* BOOOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E0130E19AD04C000BF86A5 /* BOOOrganization.m */; };
+		14E0131219AD04C700BF86A5 /* BOORoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E0131119AD04C700BF86A5 /* BOORoot.m */; };
+		14E0131519AD12B000BF86A5 /* BOOChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E0131419AD12B000BF86A5 /* BOOChannel.m */; };
+		14E0131819AD145A00BF86A5 /* BOOMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E0131719AD145A00BF86A5 /* BOOMessage.m */; };
+		14E0131A19AD19F700BF86A5 /* structureTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 14E0131919AD19F700BF86A5 /* structureTest.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +50,18 @@
 		14E012F919AD031200BF86A5 /* BOOJsonMapperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BOOJsonMapperTests-Info.plist"; sourceTree = "<group>"; };
 		14E012FB19AD031200BF86A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		14E012FD19AD031200BF86A5 /* BOOJsonMapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BOOJsonMapperTests.m; sourceTree = "<group>"; };
+		14E0130719AD032C00BF86A5 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = TestData/data.json; sourceTree = "<group>"; };
+		14E0130A19AD04B600BF86A5 /* BOOUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOOUser.h; sourceTree = "<group>"; };
+		14E0130B19AD04B600BF86A5 /* BOOUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOOUser.m; sourceTree = "<group>"; };
+		14E0130D19AD04C000BF86A5 /* BOOOrganization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOOOrganization.h; sourceTree = "<group>"; };
+		14E0130E19AD04C000BF86A5 /* BOOOrganization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOOOrganization.m; sourceTree = "<group>"; };
+		14E0131019AD04C700BF86A5 /* BOORoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOORoot.h; sourceTree = "<group>"; };
+		14E0131119AD04C700BF86A5 /* BOORoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOORoot.m; sourceTree = "<group>"; };
+		14E0131319AD12B000BF86A5 /* BOOChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOOChannel.h; sourceTree = "<group>"; };
+		14E0131419AD12B000BF86A5 /* BOOChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOOChannel.m; sourceTree = "<group>"; };
+		14E0131619AD145A00BF86A5 /* BOOMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BOOMessage.h; sourceTree = "<group>"; };
+		14E0131719AD145A00BF86A5 /* BOOMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BOOMessage.m; sourceTree = "<group>"; };
+		14E0131919AD19F700BF86A5 /* structureTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = structureTest.json; path = TestData/structureTest.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +148,7 @@
 		14E012F719AD031200BF86A5 /* BOOJsonMapperTests */ = {
 			isa = PBXGroup;
 			children = (
+				14E0130919AD04A100BF86A5 /* TestObjects */,
 				14E012FD19AD031200BF86A5 /* BOOJsonMapperTests.m */,
 				14E012F819AD031200BF86A5 /* Supporting Files */,
 			);
@@ -138,10 +158,29 @@
 		14E012F819AD031200BF86A5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14E0130719AD032C00BF86A5 /* data.json */,
 				14E012F919AD031200BF86A5 /* BOOJsonMapperTests-Info.plist */,
 				14E012FA19AD031200BF86A5 /* InfoPlist.strings */,
+				14E0131919AD19F700BF86A5 /* structureTest.json */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14E0130919AD04A100BF86A5 /* TestObjects */ = {
+			isa = PBXGroup;
+			children = (
+				14E0130A19AD04B600BF86A5 /* BOOUser.h */,
+				14E0130B19AD04B600BF86A5 /* BOOUser.m */,
+				14E0130D19AD04C000BF86A5 /* BOOOrganization.h */,
+				14E0130E19AD04C000BF86A5 /* BOOOrganization.m */,
+				14E0131019AD04C700BF86A5 /* BOORoot.h */,
+				14E0131119AD04C700BF86A5 /* BOORoot.m */,
+				14E0131319AD12B000BF86A5 /* BOOChannel.h */,
+				14E0131419AD12B000BF86A5 /* BOOChannel.m */,
+				14E0131619AD145A00BF86A5 /* BOOMessage.h */,
+				14E0131719AD145A00BF86A5 /* BOOMessage.m */,
+			);
+			path = TestObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +277,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14E0131A19AD19F700BF86A5 /* structureTest.json in Resources */,
 				14E012FC19AD031200BF86A5 /* InfoPlist.strings in Resources */,
+				14E0130819AD032C00BF86A5 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14E0131219AD04C700BF86A5 /* BOORoot.m in Sources */,
+				14E0131519AD12B000BF86A5 /* BOOChannel.m in Sources */,
+				14E0131819AD145A00BF86A5 /* BOOMessage.m in Sources */,
+				14E0130F19AD04C000BF86A5 /* BOOOrganization.m in Sources */,
 				14E012FE19AD031200BF86A5 /* BOOJsonMapperTests.m in Sources */,
+				14E0130C19AD04B600BF86A5 /* BOOUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

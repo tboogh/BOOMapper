@@ -1,0 +1,35 @@
+{
+	"users": [
+              {
+              "firstName": "firstName",
+              "lastName": "lastName",
+              "avatar": "avatar",
+              "userId": 1234,
+              "status": 99
+              }
+              ],
+	"organizations": [
+                      {
+                      "name": "name",
+                      "channels": [
+                                   {
+                                   "name": "name",
+                                   "userIds": [
+                                               1111,
+                                               2222,
+                                               3333,
+                                               4444,
+                                               5555
+                                               ],
+                                   "messages": [
+                                                {
+                                                "userId": 4321,
+                                                "message": "message",
+                                                "postTime": "2001-01-01T01:01:01.000Z"
+                                                }
+                                                ]
+                                   },
+                                   ]
+                      }
+                      ]
+}
