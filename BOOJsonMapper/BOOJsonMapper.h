@@ -23,7 +23,11 @@
 @property (nonatomic, strong) NSString *customGetterName;
 @property (nonatomic, strong) NSString *customSetterName;
 @property (nonatomic, strong) NSString *className;
+@property (nonatomic, strong) NSString *protocolName;
 @end
+
+typedef id(^BOOMapperPropertyMapperBlock)(id input);
+typedef id(^BOOMapperPropertyMapperResolveClassBlock)(Class inClass, NSString *propertyName);
 
 @protocol BOOMapperDelegate <NSObject>
 @optional
@@ -35,5 +39,10 @@
 @property (nonatomic, weak) id<BOOMapperDelegate> delegate;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 -(instancetype)initWithDelegate:(id<BOOMapperDelegate>)delegate;
--(id)objectFromDictionary:(NSDictionary *)dictionary;-(id)objectFromDictionary:(NSDictionary *)dictionary class:(Class)class;
+-(id)objectFromDictionary:(NSDictionary *)dictionary;
+-(id)objectFromDictionary:(NSDictionary *)dictionary class:(Class)class;
+-(void)resolvePropertiesForClassUsingBlock:(BOOMapperPropertyMapperResolveClassBlock)resolveBlock;
+-(void)forClass:(Class)inClass forPropertyNames:(NSString *)property mapUsingBlock:(BOOMapperPropertyMapperBlock)block;
+
++(NSMutableDictionary *)propertyAttributesForClass:(Class)class;
 @end

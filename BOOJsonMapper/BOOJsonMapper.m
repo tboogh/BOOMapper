@@ -15,6 +15,11 @@
 }
 @end
 
+@interface BOOMapper()
+@property (nonatomic, strong) NSMutableDictionary *propertyMapperBlocks;
+@property (nonatomic, copy) BOOMapperPropertyMapperResolveClassBlock resolveBlock;
+@end
+
 @implementation BOOMapper
 
 -(NSDateFormatter *)dateFormatter{
@@ -28,6 +33,7 @@
     self = [super init];
     if (self){
         _delegate = delegate;
+        self.propertyMapperBlocks = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -36,14 +42,11 @@
 }
 
 -(id)objectFromDictionary:(NSDictionary *)dictionary class:(Class)class{
-    if (self.delegate == nil){
-        NSLog(@"Delegate not set!");
-        return nil;
-    }
-    
     if (class == nil){
         if ([self.delegate respondsToSelector:@selector(mapper:classForPropertyWithName:parentClass:)]){
             class = [self.delegate mapper:self classForPropertyWithName:nil parentClass:nil];
+        } else if (self.resolveBlock != nil){
+            class = self.resolveBlock(nil, nil);
         }
     }
     
@@ -88,11 +91,19 @@
                 NSLog(@"Could not find a value for key %@ in object of class %@", key, class);
                 continue;
             }
-            id value = [self convertedValue:dictValue forProperty:info parentClass:class];
-            
-            if ([value isKindOfClass:[NSSet class]] ){
-                NSLog(@"%@", value);
+            NSDictionary *propertyMapperBlockDict = self.propertyMapperBlocks[NSStringFromClass(class)];
+            id value = nil;
+            if (propertyMapperBlockDict != nil){
+                BOOMapperPropertyMapperBlock block = propertyMapperBlockDict[info.name];
+                if (block != nil) {
+                    value = block(dictValue);
+                }
             }
+            
+            if (value == nil){
+                value = [self convertedValue:dictValue forProperty:info parentClass:class];
+            }
+            
             if (info.isReadonly){
                 NSLog(@"Cannot set value for %@ as it is readonly", info.name);
             } else if (info.hasCustomSetter){
@@ -115,17 +126,26 @@
 
 -(id)convertedValue:(id)value forProperty:(BOOMapperPropertyInfo *)propertyInfo parentClass:(Class)parentClass{
     if ([value isKindOfClass:[NSDictionary class]]){
+        Class class = nil;
         if (self.delegate != nil){
             if ([self.delegate respondsToSelector:@selector(mapper:classForPropertyWithName:parentClass:)]){
-                Class class = [self.delegate mapper:self classForPropertyWithName:propertyInfo.name parentClass:parentClass];
-                if (class == nil){
-                    NSLog(@"No class returned for %@, returning dictionary value", propertyInfo.name);
-                    return value;
-                }
-                id object = [self objectFromDictionary:value class:class];
-                return object;
+                class = [self.delegate mapper:self classForPropertyWithName:propertyInfo.name parentClass:parentClass];
             }
         }
+        if (self.resolveBlock != nil && class == nil){
+            class = self.resolveBlock(parentClass, propertyInfo.name);
+        }
+        if (class == nil){
+            if (![propertyInfo.protocolName isEqualToString:@""] && propertyInfo.protocolName != nil){
+                class = NSClassFromString(propertyInfo.protocolName);
+            }
+        }
+        if (class == nil){
+            NSLog(@"No class returned for %@, returning dictionary value", propertyInfo.name);
+            return value;
+        }
+        id object = [self objectFromDictionary:value class:class];
+        return object;
     } else {
         Class propertyClass = NSClassFromString(propertyInfo.className);
         if (propertyClass == [NSNumber class]){
@@ -142,7 +162,9 @@
             if ([value isKindOfClass:[NSString class]]){
                 return value;
             } else if ([value isKindOfClass:[NSNumber class]]){
-                return [NSString stringWithFormat:@"%@", value];
+                return [value stringValue];
+            } else if ([value isKindOfClass:[NSNull class]]){
+                return nil;
             } else {
                 NSLog(@"Unsupported value class %@ for %@", NSStringFromClass([value class]), NSStringFromClass(propertyClass));
             }
@@ -188,11 +210,7 @@
                 for (id arrayValue in value) {
                     id convertedArrayValue = arrayValue;
                     if ([arrayValue isKindOfClass:[NSDictionary class]]){
-                        if (self.delegate != nil){
-                            if ([self.delegate respondsToSelector:@selector(mapper:classForPropertyWithName:parentClass:)]){
-                                convertedArrayValue = [self convertedValue:arrayValue forProperty:propertyInfo parentClass:parentClass];
-                            }
-                        }
+                        convertedArrayValue = [self convertedValue:arrayValue forProperty:propertyInfo parentClass:parentClass];
                     }
                     if (convertedArrayValue != nil){
                         [array addObject:convertedArrayValue];
@@ -209,7 +227,7 @@
             }
         }
     }
-    return nil;
+    return value;
 }
 
 +(NSArray *)propertyNamesForClass:(Class)class{
@@ -246,6 +264,17 @@
             unichar firstCharacter = [string characterAtIndex:0];
             if (firstCharacter == 'T'){
                 NSString *classString = [[string stringByReplacingOccurrencesOfString:@"T@" withString:@""] stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+                
+                if ([classString rangeOfString:@"<"].location != NSNotFound){
+                    NSString *protocolName = @"";
+                    NSScanner *scanner = [NSScanner scannerWithString:classString];
+                    [scanner setCharactersToBeSkipped:nil];
+                    [scanner scanUpToString:@"<" intoString:&classString];
+                    if ([scanner scanString:@"<" intoString:nil]){
+                        [scanner scanUpToString:@">" intoString:&protocolName];
+                        info.protocolName = protocolName;
+                    }
+                }
                 info.className = classString;
             } else if (firstCharacter == '&'){
                 info.isRetain = YES;
@@ -278,4 +307,19 @@
     }
     return propertyInfoDictionary;
 }
+
+-(void)forClass:(Class)inClass forPropertyNames:(NSString *)property mapUsingBlock:(BOOMapperPropertyMapperBlock)block{
+    NSString *className = NSStringFromClass(inClass);
+    NSMutableDictionary *propertyDictInClass = self.propertyMapperBlocks[className];
+    if (propertyDictInClass == nil){
+        propertyDictInClass = [[NSMutableDictionary alloc] init];
+        self.propertyMapperBlocks[className] = propertyDictInClass;
+    }
+    propertyDictInClass[property] = block;
+}
+
+-(void)resolvePropertiesForClassUsingBlock:(BOOMapperPropertyMapperResolveClassBlock)resolveBlock{
+    self.resolveBlock = resolveBlock;
+}
+
 @end

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1449E42919B4C2CD008B7796 /* PiranhaChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 1449E42819B4C2CD008B7796 /* PiranhaChanges.m */; };
+		1449E42B19B4C2EC008B7796 /* kraftappen.json in Resources */ = {isa = PBXBuildFile; fileRef = 1449E42A19B4C2EC008B7796 /* kraftappen.json */; };
+		1449E42E19B4C343008B7796 /* PiranhaPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1449E42D19B4C343008B7796 /* PiranhaPage.m */; };
+		14CEE8C319B4E5990051F1A7 /* PiranhaRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CEE8C219B4E5990051F1A7 /* PiranhaRegion.m */; };
+		14CEE8C619B4F8450051F1A7 /* PiranhaContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CEE8C519B4F8450051F1A7 /* PiranhaContent.m */; };
+		14CEE8C919B4F9A60051F1A7 /* PiranhaPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CEE8C819B4F9A60051F1A7 /* PiranhaPost.m */; };
 		14E012DD19AD031200BF86A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E012DC19AD031200BF86A5 /* Cocoa.framework */; };
 		14E012E719AD031200BF86A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14E012E519AD031200BF86A5 /* InfoPlist.strings */; };
 		14E012EB19AD031200BF86A5 /* BOOJsonMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E012EA19AD031200BF86A5 /* BOOJsonMapper.m */; };
@@ -35,6 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1449E42719B4C2CD008B7796 /* PiranhaChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiranhaChanges.h; sourceTree = "<group>"; };
+		1449E42819B4C2CD008B7796 /* PiranhaChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiranhaChanges.m; sourceTree = "<group>"; };
+		1449E42A19B4C2EC008B7796 /* kraftappen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = kraftappen.json; path = TestData/kraftappen.json; sourceTree = "<group>"; };
+		1449E42C19B4C343008B7796 /* PiranhaPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiranhaPage.h; sourceTree = "<group>"; };
+		1449E42D19B4C343008B7796 /* PiranhaPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiranhaPage.m; sourceTree = "<group>"; };
+		14CEE8C119B4E5990051F1A7 /* PiranhaRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiranhaRegion.h; sourceTree = "<group>"; };
+		14CEE8C219B4E5990051F1A7 /* PiranhaRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiranhaRegion.m; sourceTree = "<group>"; };
+		14CEE8C419B4F8450051F1A7 /* PiranhaContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiranhaContent.h; sourceTree = "<group>"; };
+		14CEE8C519B4F8450051F1A7 /* PiranhaContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiranhaContent.m; sourceTree = "<group>"; };
+		14CEE8C719B4F9A60051F1A7 /* PiranhaPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiranhaPost.h; sourceTree = "<group>"; };
+		14CEE8C819B4F9A60051F1A7 /* PiranhaPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiranhaPost.m; sourceTree = "<group>"; };
 		14E012D919AD031200BF86A5 /* BOOJsonMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BOOJsonMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E012DC19AD031200BF86A5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		14E012DF19AD031200BF86A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +175,7 @@
 		14E012F819AD031200BF86A5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1449E42A19B4C2EC008B7796 /* kraftappen.json */,
 				14E0130719AD032C00BF86A5 /* data.json */,
 				14E012F919AD031200BF86A5 /* BOOJsonMapperTests-Info.plist */,
 				14E012FA19AD031200BF86A5 /* InfoPlist.strings */,
@@ -169,6 +187,8 @@
 		14E0130919AD04A100BF86A5 /* TestObjects */ = {
 			isa = PBXGroup;
 			children = (
+				1449E42719B4C2CD008B7796 /* PiranhaChanges.h */,
+				1449E42819B4C2CD008B7796 /* PiranhaChanges.m */,
 				14E0130A19AD04B600BF86A5 /* BOOUser.h */,
 				14E0130B19AD04B600BF86A5 /* BOOUser.m */,
 				14E0130D19AD04C000BF86A5 /* BOOOrganization.h */,
@@ -179,6 +199,14 @@
 				14E0131419AD12B000BF86A5 /* BOOChannel.m */,
 				14E0131619AD145A00BF86A5 /* BOOMessage.h */,
 				14E0131719AD145A00BF86A5 /* BOOMessage.m */,
+				1449E42C19B4C343008B7796 /* PiranhaPage.h */,
+				1449E42D19B4C343008B7796 /* PiranhaPage.m */,
+				14CEE8C119B4E5990051F1A7 /* PiranhaRegion.h */,
+				14CEE8C219B4E5990051F1A7 /* PiranhaRegion.m */,
+				14CEE8C419B4F8450051F1A7 /* PiranhaContent.h */,
+				14CEE8C519B4F8450051F1A7 /* PiranhaContent.m */,
+				14CEE8C719B4F9A60051F1A7 /* PiranhaPost.h */,
+				14CEE8C819B4F9A60051F1A7 /* PiranhaPost.m */,
 			);
 			path = TestObjects;
 			sourceTree = "<group>";
@@ -280,6 +308,7 @@
 				14E0131A19AD19F700BF86A5 /* structureTest.json in Resources */,
 				14E012FC19AD031200BF86A5 /* InfoPlist.strings in Resources */,
 				14E0130819AD032C00BF86A5 /* data.json in Resources */,
+				1449E42B19B4C2EC008B7796 /* kraftappen.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,12 +327,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1449E42E19B4C343008B7796 /* PiranhaPage.m in Sources */,
 				14E0131219AD04C700BF86A5 /* BOORoot.m in Sources */,
 				14E0131519AD12B000BF86A5 /* BOOChannel.m in Sources */,
 				14E0131819AD145A00BF86A5 /* BOOMessage.m in Sources */,
+				1449E42919B4C2CD008B7796 /* PiranhaChanges.m in Sources */,
+				14CEE8C919B4F9A60051F1A7 /* PiranhaPost.m in Sources */,
 				14E0130F19AD04C000BF86A5 /* BOOOrganization.m in Sources */,
 				14E012FE19AD031200BF86A5 /* BOOJsonMapperTests.m in Sources */,
 				14E0130C19AD04B600BF86A5 /* BOOUser.m in Sources */,
+				14CEE8C319B4E5990051F1A7 /* PiranhaRegion.m in Sources */,
+				14CEE8C619B4F8450051F1A7 /* PiranhaContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +530,7 @@
 				14E0130319AD031200BF86A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14E0130419AD031200BF86A5 /* Build configuration list for PBXNativeTarget "BOOJsonMapperTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +539,7 @@
 				14E0130619AD031200BF86A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
