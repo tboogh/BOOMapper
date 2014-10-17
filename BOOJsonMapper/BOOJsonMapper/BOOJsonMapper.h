@@ -10,6 +10,8 @@
 
 @class BOOMapper;
 
+
+
 @interface BOOMapperPropertyInfo : NSObject
 @property (nonatomic) BOOL isReadonly;
 @property (nonatomic) BOOL isCopy;
@@ -26,23 +28,18 @@
 @property (nonatomic, strong) NSString *protocolName;
 @end
 
+//Blocks
 typedef id(^BOOMapperPropertyMapperBlock)(id input);
 typedef id(^BOOMapperPropertyMapperResolveClassBlock)(Class inClass, NSString *propertyName);
-
-@protocol BOOMapperDelegate <NSObject>
-@optional
--(Class)mapper:(BOOMapper *)mapper classForPropertyWithName:(NSString *)propertyName parentClass:(Class)parentClass;
--(id)mapper:(BOOMapper *)mapper instanceForClass:(Class)class;
-@end
+typedef id(^BOOMapperPropertyMapperClassInstanceBlock)(Class aClass);
 
 @interface BOOMapper : NSObject
-@property (nonatomic, weak) id<BOOMapperDelegate> delegate;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
--(instancetype)initWithDelegate:(id<BOOMapperDelegate>)delegate;
 -(id)objectFromDictionary:(NSDictionary *)dictionary;
--(id)objectFromDictionary:(NSDictionary *)dictionary class:(Class)class;
+-(NSArray *)arrayFromCSVFile:(NSString *)file withClass:(Class)csvClass ignoreHeaderRow:(BOOL)ignoreHeader;
 -(void)resolvePropertiesForClassUsingBlock:(BOOMapperPropertyMapperResolveClassBlock)resolveBlock;
+-(void)instantiateClassesWithBlock:(BOOMapperPropertyMapperClassInstanceBlock)instanceBlock;
 -(void)forClass:(Class)inClass forPropertyNames:(NSString *)property mapUsingBlock:(BOOMapperPropertyMapperBlock)block;
 
-+(NSMutableDictionary *)propertyAttributesForClass:(Class)class;
++(NSArray *)propertyAttributesForClass:(Class)class;
 @end

@@ -10,29 +10,29 @@
 	<string>BOOJsonMapper</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>EF1723D2-A1F8-4CB9-8FB1-D400239440E3</key>
+		<key>CC629BEF6205746DC4585844EFE883B520AA94B6</key>
 		<string>https://github.com/tboogh/BOOMapper.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BOOJsonMapper.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>EF1723D2-A1F8-4CB9-8FB1-D400239440E3</key>
+		<key>CC629BEF6205746DC4585844EFE883B520AA94B6</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/tboogh/BOOMapper.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>EF1723D2-A1F8-4CB9-8FB1-D400239440E3</string>
+	<string>CC629BEF6205746DC4585844EFE883B520AA94B6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>EF1723D2-A1F8-4CB9-8FB1-D400239440E3</string>
+			<string>CC629BEF6205746DC4585844EFE883B520AA94B6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>BOOJsonMapper</string>
 		</dict>

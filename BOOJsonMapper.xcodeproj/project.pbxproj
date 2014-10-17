@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1430282419C369F7004EE4E2 /* BOOJsonMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1430282219C369F7004EE4E2 /* BOOJsonMapper.h */; };
+		1430282519C369F7004EE4E2 /* BOOJsonMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430282319C369F7004EE4E2 /* BOOJsonMapper.m */; };
 		1449E42919B4C2CD008B7796 /* PiranhaChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 1449E42819B4C2CD008B7796 /* PiranhaChanges.m */; };
 		1449E42B19B4C2EC008B7796 /* kraftappen.json in Resources */ = {isa = PBXBuildFile; fileRef = 1449E42A19B4C2EC008B7796 /* kraftappen.json */; };
 		1449E42E19B4C343008B7796 /* PiranhaPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1449E42D19B4C343008B7796 /* PiranhaPage.m */; };
@@ -15,7 +17,6 @@
 		14CEE8C919B4F9A60051F1A7 /* PiranhaPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CEE8C819B4F9A60051F1A7 /* PiranhaPost.m */; };
 		14E012DD19AD031200BF86A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E012DC19AD031200BF86A5 /* Cocoa.framework */; };
 		14E012E719AD031200BF86A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14E012E519AD031200BF86A5 /* InfoPlist.strings */; };
-		14E012EB19AD031200BF86A5 /* BOOJsonMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E012EA19AD031200BF86A5 /* BOOJsonMapper.m */; };
 		14E012F219AD031200BF86A5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E012F119AD031200BF86A5 /* XCTest.framework */; };
 		14E012F319AD031200BF86A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E012DC19AD031200BF86A5 /* Cocoa.framework */; };
 		14E012F619AD031200BF86A5 /* BOOJsonMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E012D919AD031200BF86A5 /* BOOJsonMapper.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1430282219C369F7004EE4E2 /* BOOJsonMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BOOJsonMapper.h; path = BOOJsonMapper/BOOJsonMapper.h; sourceTree = "<group>"; };
+		1430282319C369F7004EE4E2 /* BOOJsonMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BOOJsonMapper.m; path = BOOJsonMapper/BOOJsonMapper.m; sourceTree = "<group>"; };
 		1449E42719B4C2CD008B7796 /* PiranhaChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiranhaChanges.h; sourceTree = "<group>"; };
 		1449E42819B4C2CD008B7796 /* PiranhaChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PiranhaChanges.m; sourceTree = "<group>"; };
 		1449E42A19B4C2EC008B7796 /* kraftappen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = kraftappen.json; path = TestData/kraftappen.json; sourceTree = "<group>"; };
@@ -60,8 +63,6 @@
 		14E012E419AD031200BF86A5 /* BOOJsonMapper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BOOJsonMapper-Info.plist"; sourceTree = "<group>"; };
 		14E012E619AD031200BF86A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		14E012E819AD031200BF86A5 /* BOOJsonMapper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BOOJsonMapper-Prefix.pch"; sourceTree = "<group>"; };
-		14E012E919AD031200BF86A5 /* BOOJsonMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BOOJsonMapper.h; sourceTree = "<group>"; };
-		14E012EA19AD031200BF86A5 /* BOOJsonMapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BOOJsonMapper.m; sourceTree = "<group>"; };
 		14E012F019AD031200BF86A5 /* BOOJsonMapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BOOJsonMapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E012F119AD031200BF86A5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		14E012F919AD031200BF86A5 /* BOOJsonMapperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BOOJsonMapperTests-Info.plist"; sourceTree = "<group>"; };
@@ -145,8 +146,8 @@
 		14E012E219AD031200BF86A5 /* BOOJsonMapper */ = {
 			isa = PBXGroup;
 			children = (
-				14E012E919AD031200BF86A5 /* BOOJsonMapper.h */,
-				14E012EA19AD031200BF86A5 /* BOOJsonMapper.m */,
+				1430282219C369F7004EE4E2 /* BOOJsonMapper.h */,
+				1430282319C369F7004EE4E2 /* BOOJsonMapper.m */,
 				14E012E319AD031200BF86A5 /* Supporting Files */,
 			);
 			path = BOOJsonMapper;
@@ -218,6 +219,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1430282419C369F7004EE4E2 /* BOOJsonMapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14E012EB19AD031200BF86A5 /* BOOJsonMapper.m in Sources */,
+				1430282519C369F7004EE4E2 /* BOOJsonMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

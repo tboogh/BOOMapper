@@ -19,7 +19,7 @@
 #import "PiranhaChanges.h"
 #import "PiranhaPage.h"
 
-@interface BOOJsonMapperTests : XCTestCase <BOOMapperDelegate>
+@interface BOOJsonMapperTests : XCTestCase
 @end
 
 @implementation BOOJsonMapperTests
@@ -97,7 +97,7 @@
 //}
 
 -(void)testMapperWithoutDelegate{
-    BOOMapper *mapper = [[BOOMapper alloc] initWithDelegate:nil];
+    BOOMapper *mapper = [[BOOMapper alloc] init];
     //    "LastPublished":"11/15/2013 9:54:27 AM"
     [mapper.dateFormatter setDateFormat:@"MM/dd/yyyy h:mm:ss a"];
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"kraftappen" ofType:@"json"];
@@ -112,8 +112,11 @@
     
     
     [mapper forClass:[PiranhaPage class] forPropertyNames:@"Regions" mapUsingBlock:^id(id input) {
+        if ([input valueForKey:@"Regions"] == nil){
+            return nil;
+        }
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-        for (NSDictionary *arrayDict in input){
+        for (NSDictionary *arrayDict in input[@"Regions"]){
             dict[arrayDict[@"Name"]] = arrayDict[@"Body"];
         }
         return dict;
@@ -126,7 +129,7 @@
         return nil;
     }];
     
-    PiranhaChanges *changes = [mapper objectFromDictionary:fileDictionary class:nil];
+    PiranhaChanges *changes = [mapper objectFromDictionary:fileDictionary];
     
     XCTAssertNotNil(changes, @"Changes not parsed");
     XCTAssertNotNil(changes.Sitemap, @"Sitemap not parsed");
